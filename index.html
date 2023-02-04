@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #87CEEB;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+
+      input[type="button"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #87CEEB;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .message {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: gray;
+      }
+
+      #signature {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        text-align: left;
+      }
+
+      .best-practices {
+        margin-top: 20px;
+        text-align: left;
+        width: 50%;
+      }
+
+      .best-practices h2 {
+        font-weight: bold;
+      }
+
+      .best-practices ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .best-practices li {
+        margin-top: 10px;
+        font-size: 14px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" required>
+      <br>
+      <label for="title">Title:</label>
+      <input type="text" id="title" required>
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <br>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" required>
+      <br>
+      <label for="website">Website:</label>
+      <input type="url" id="website" required>
+      <br>
+      <input type="button" value="Generate Signature" onclick="generateSignature()">
+    </form>
+    <div class="message">Fancy email signatures aren't worth your time and may hurt your chances of landing in the inbox. Use this & focus on closing more deals!</div>
+    <div id="signature" style="display: none;"></div>
+    <div class="best-practices">
+      <h2>Email Signature Best Practices</h2>
+      <ul>
+        <li>Keep it simple and professional</li>
+        <li>Include only essential information</li>
+        <li>Ensure consistent branding across all signatures</li>
+        <li>Avoid using excessive graphics or colors</li>
+        <li>Make sure all links are functional</li>
+      </ul>
+    </div>
+
+    <script>
+      function generateSignature() {
+        const fullName = document.querySelector("#fullName").value;
+        const title = document.querySelector("#title").value;
+        const email = document.querySelector("#email").value;
+        const phone = document.querySelector("#phone").value;
+        const website = document.querySelector("#website").value;
+
+        const signature = `
+          <p><b>${fullName}</b></p>
+          <p>${title} @ ${website}</p>
+          <p>Email: ${email}</p>
+          <p>Phone: ${phone}</p>
+        `;
+
+        document.querySelector("#signature").innerHTML = signature;
+        document.querySelector("#signature").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
+
